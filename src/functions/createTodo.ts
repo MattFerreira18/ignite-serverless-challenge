@@ -8,7 +8,6 @@ interface ICreateTodo {
 }
 
 export const handle: APIGatewayProxyHandler = async(event) => {
-  console.log('a')
   const { userId } = event.pathParameters;
   const { title, deadline } = event.body as unknown as ICreateTodo;
 
@@ -22,6 +21,7 @@ export const handle: APIGatewayProxyHandler = async(event) => {
       done: false,
     }
   }).promise();
+
 
   return {
     statusCode: 201,

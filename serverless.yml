@@ -33,19 +33,18 @@ functions:
           method: POST
           cors: true
   
-  # listUserTodos:
-  #   handler: src/functions/listUserTodos.handle
-    # events:
-    #     - http:
-    #       path: /todos/{userId}
-    #       method: GET
-    #       cors: true
+  listUserTodos:
+    handler: src/functions/listUserTodos.handle
+    events:
+      - http:
+          path: /todos/{id}
+          method: GET
+          cors: true
 
 resources:
   Resources:
     dbUserTodos:
       Type: AWS::DynamoDB::Table
-
       Properties:
           TableName: users_todos
           ProvisionedThroughput:
